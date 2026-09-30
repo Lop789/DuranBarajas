@@ -1,0 +1,196 @@
+warning: in the working copy of 'resources/views/inicio.blade.php', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'resources/views/layouts/app.blade.php', CRLF will be replaced by LF the next time Git touches it
+[1mdiff --git a/resources/views/inicio.blade.php b/resources/views/inicio.blade.php[m
+[1mindex 0bd5797..d2f2b0d 100644[m
+[1m--- a/resources/views/inicio.blade.php[m
+[1m+++ b/resources/views/inicio.blade.php[m
+[36m@@ -4,12 +4,139 @@[m
+ [m
+ @section('contenido')[m
+ [m
+[31m-    <h1>Reservas de Servicios</h1>[m
+[32m+[m[32m<!-- Hero -->[m
+[32m+[m[32m<section class="bg-gradient-to-r from-green-700 to-emerald-500 text-white">[m
+ [m
+[31m-    <h2>Bienvenido</h2>[m
+[32m+[m[32m    <div class="max-w-7xl mx-auto px-6 py-24 text-center">[m
+ [m
+[31m-    <p>[m
+[31m-        Bienvenido a nuestra plataforma de reservas de servicios.[m
+[31m-    </p>[m
+[32m+[m[32m        <h1 class="text-5xl font-extrabold mb-6">[m
+[32m+[m[32m            Bienvenido a nuestra plataforma[m
+[32m+[m[32m        </h1>[m
+[32m+[m
+[32m+[m[32m        <p class="text-xl max-w-3xl mx-auto mb-8">[m
+[32m+[m[32m            Reserva servicios de manera sencilla, rápida y segura.[m
+[32m+[m[32m            Encuentra lo que necesitas y administra tus reservaciones[m
+[32m+[m[32m            desde un solo lugar.[m
+[32m+[m[32m        </p>[m
+[32m+[m
+[32m+[m[32m        <div class="flex justify-center gap-4 flex-wrap">[m
+[32m+[m
+[32m+[m[32m            <a href="/servicios"[m
+[32m+[m[32m               class="bg-white text-green-700 font-bold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition">[m
+[32m+[m[32m                Ver servicios[m
+[32m+[m[32m            </a>[m
+[32m+[m
+[32m+[m[32m            <a href="/reservaciones"[m
+[32m+[m[32m               class="border-2 border-white text-white font-bold px-6 py-3 rounded-lg hover:bg-white hover:text-green-700 transition">[m
+[32m+[m[32m                Hacer reservación[m
+[32m+[m[32m            </a>[m
+[32m+[m
+[32m+[m[32m        </div>[m
+[32m+[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m</section>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m<!-- Características -->[m
+[32m+[m[32m<section class="max-w-7xl mx-auto px-6 py-16">[m
+[32m+[m
+[32m+[m[32m    <div class="text-center mb-12">[m
+[32m+[m
+[32m+[m[32m        <h2 class="text-3xl font-bold text-gray-800">[m
+[32m+[m[32m            ¿Qué puedes hacer?[m
+[32m+[m[32m        </h2>[m
+[32m+[m
+[32m+[m[32m        <p class="text-gray-600 mt-3">[m
+[32m+[m[32m            Nuestra plataforma te permite gestionar tus servicios de manera sencilla.[m
+[32m+[m[32m        </p>[m
+[32m+[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">[m
+[32m+[m
+[32m+[m[32m        <!-- Tarjeta 1 -->[m
+[32m+[m[32m        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-xl transition">[m
+[32m+[m
+[32m+[m[32m            <div class="text-4xl mb-4">[m
+[32m+[m[32m                📋[m
+[32m+[m[32m            </div>[m
+[32m+[m
+[32m+[m[32m            <h3 class="text-xl font-bold mb-3">[m
+[32m+[m[32m                Consulta servicios[m
+[32m+[m[32m            </h3>[m
+[32m+[m
+[32m+[m[32m            <p class="text-gray-600">[m
+[32m+[m[32m                Explora los servicios disponibles y encuentra la opción[m
+[32m+[m[32m                que mejor se adapte a tus necesidades.[m
+[32m+[m[32m            </p>[m
+[32m+[m
+[32m+[m[32m        </div>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        <!-- Tarjeta 2 -->[m
+[32m+[m[32m        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-xl transition">[m
+[32m+[m
+[32m+[m[32m            <div class="text-4xl mb-4">[m
+[32m+[m[32m                📅[m
+[32m+[m[32m            </div>[m
+[32m+[m
+[32m+[m[32m            <h3 class="text-xl font-bold mb-3">[m
+[32m+[m[32m                Realiza reservaciones[m
+[32m+[m[32m            </h3>[m
+[32m+[m
+[32m+[m[32m            <p class="text-gray-600">[m
+[32m+[m[32m                Selecciona un servicio y realiza tu reservación[m
+[32m+[m[32m                de forma rápida y sencilla.[m
+[32m+[m[32m            </p>[m
+[32m+[m
+[32m+[m[32m        </div>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        <!-- Tarjeta 3 -->[m
+[32m+[m[32m        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-xl transition">[m
+[32m+[m
+[32m+[m[32m            <div class="text-4xl mb-4">[m
+[32m+[m[32m                ⚡[m
+[32m+[m[32m            </div>[m
+[32m+[m
+[32m+[m[32m            <h3 class="text-xl font-bold mb-3">[m
+[32m+[m[32m                Proceso sencillo[m
+[32m+[m[32m            </h3>[m
+[32m+[m
+[32m+[m[32m            <p class="text-gray-600">[m
+[32m+[m[32m                Gestiona tus reservaciones desde una plataforma[m
+[32m+[m[32m                clara y fácil de utilizar.[m
+[32m+[m[32m            </p>[m
+[32m+[m
+[32m+[m[32m        </div>[m
+[32m+[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m</section>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m<!-- Llamada a la acción -->[m
+[32m+[m[32m<section class="bg-green-50">[m
+[32m+[m
+[32m+[m[32m    <div class="max-w-5xl mx-auto px-6 py-16 text-center">[m
+[32m+[m
+[32m+[m[32m        <h2 class="text-3xl font-bold text-green-800 mb-4">[m
+[32m+[m[32m            ¿Listo para comenzar?[m
+[32m+[m[32m        </h2>[m
+[32m+[m
+[32m+[m[32m        <p class="text-gray-600 mb-8">[m
+[32m+[m[32m            Consulta nuestros servicios y realiza tu primera reservación.[m
+[32m+[m[32m        </p>[m
+[32m+[m
+[32m+[m[32m        <a href="/servicios"[m
+[32m+[m[32m           class="inline-block bg-green-700 text-white font-bold px-8 py-3 rounded-lg hover:bg-green-800 transition">[m
+[32m+[m[32m            Comenzar[m
+[32m+[m[32m        </a>[m
+[32m+[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m[32m</section>[m
+ [m
+ @endsection[m
+\ No newline at end of file[m
+[1mdiff --git a/resources/views/layouts/app.blade.php b/resources/views/layouts/app.blade.php[m
+[1mindex e842565..b05edd3 100644[m
+[1m--- a/resources/views/layouts/app.blade.php[m
+[1m+++ b/resources/views/layouts/app.blade.php[m
+[36m@@ -4,22 +4,68 @@[m
+     <meta charset="UTF-8">[m
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+ [m
+[31m-    <title>@yield('titulo')</title>[m
+[32m+[m[32m    <title>@yield('titulo', 'Reservas de Servicios')</title>[m
+[32m+[m[32m    @vite(['resources/css/app.css', 'resources/js/app.js'])[m
+ </head>[m
+ [m
+[31m-<body>[m
+[32m+[m[32m<body class="bg-gray-50 text-gray-800">[m
+ [m
+[31m-    <nav>[m
+[31m-        <a href="/">Inicio</a>[m
+[31m-        <a href="/servicios">Servicios</a>[m
+[31m-        <a href="/reservaciones">Reservaciones</a>[m
+[31m-        <a href="/nosotros">Nosotros</a>[m
+[31m-        <a href="/contacto">Contacto</a>[m
+[32m+[m[32m    <!-- Navbar -->[m
+[32m+[m[32m    <nav class="bg-green-700 text-white shadow-lg">[m
+[32m+[m[32m        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between">[m
+[32m+[m
+[32m+[m[32m            <a href="/" class="text-2xl font-bold">[m
+[32m+[m[32m                Reservas de Servicios[m
+[32m+[m[32m            </a>[m
+[32m+[m
+[32m+[m[32m            <div class="flex flex-wrap gap-6 mt-3 md:mt-0">[m
+[32m+[m[32m                <a href="/" class="hover:text-green-200 transition">[m
+[32m+[m[32m                    Inicio[m
+[32m+[m[32m                </a>[m
+[32m+[m
+[32m+[m[32m                <a href="/servicios" class="hover:text-green-200 transition">[m
+[32m+[m[32m                    Servicios[m
+[32m+[m[32m                </a>[m
+[32m+[m
+[32m+[m[32m                <a href="/reservaciones" class="hover:text-green-200 transition">[m
+[32m+[m[32m                    Reservaciones[m
+[32m+[m[32m                </a>[m
+[32m+[m
+[32m+[m

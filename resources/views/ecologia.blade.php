@@ -40,7 +40,7 @@
                     </li>
 
                     <li>
-                        <a href="/admin"
+                        <a href="/admin/registros-huella/formulario"
                             class="block py-2 px-3 text-white rounded hover:bg-green-800">
                             Administración
                         </a>
@@ -76,7 +76,7 @@
                         y descubre formas sencillas de reducir tu huella ecológica.
                     </p>
 
-                    <a href="/admin"
+                    <a href="/admin/registros-huella/formulario"
                         class="inline-flex items-center px-5 py-3 text-sm font-medium
                         text-white bg-green-700 rounded-lg
                         hover:bg-green-800 focus:ring-4 focus:ring-green-300">

@@ -7,7 +7,7 @@ use App\Http\Controllers\RegistroHuellaController;
 use App\Http\Controllers\AdministradorController;
 
 Route::get('/', function () {
-    return view('inicio');
+    return view('ecologia');
 });
 
 Route::get('/servicios', function () {
