@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ActividadController extends Controller
 {
-    public function listado()
+    public function listar()
     {
         $actividades = Actividad::with('categoria')
             ->orderBy('id', 'desc')
@@ -17,14 +17,14 @@ class ActividadController extends Controller
         return view('actividades.listado', compact('actividades'));
     }
 
-    public function formulario()
+    public function vistaFormulario()
     {
         $categorias = Categoria::where('estado', true)->get();
 
         return view('actividades.formulario', compact('categorias'));
     }
 
-    public function guardar(Request $request)
+    public function registrar(Request $request)
     {
         $request->validate([
             'categoria_id' => 'required|exists:categorias,id',
@@ -47,18 +47,15 @@ class ActividadController extends Controller
             'estado' => true,
         ]);
 
-        return redirect('/admin/actividades/listado')
+        return redirect('/admin/actividades/listar')
             ->with('success', 'Actividad registrada correctamente.');
     }
 
-    public function editar(Actividad $actividad)
+    public function vistaEdicion(Actividad $actividad)
     {
         $categorias = Categoria::where('estado', true)->get();
 
-        return view('actividades.editar', compact(
-            'actividad',
-            'categorias'
-        ));
+        return view('actividades.editar', compact('actividad', 'categorias'));
     }
 
     public function actualizar(Request $request, Actividad $actividad)
@@ -85,14 +82,21 @@ class ActividadController extends Controller
             'estado' => $request->estado,
         ]);
 
-        return redirect('/admin/actividades/listado')
+        return redirect('/admin/actividades/listar')
             ->with('success', 'Actividad actualizada correctamente.');
     }
 
-    public function eliminar(Actividad $actividad)
+    public function vistaMostrar(Actividad $actividad)
+    {
+        $actividad->load('categoria');
+
+        return view('actividades.mostrar', compact('actividad'));
+    }
+
+    public function borrar(Actividad $actividad)
     {
         if ($actividad->registrosHuella()->exists()) {
-            return redirect('/admin/actividades/listado')
+            return redirect('/admin/actividades/listar')
                 ->with(
                     'error',
                     'No se puede eliminar la actividad porque tiene registros de huella asociados.'
@@ -101,7 +105,7 @@ class ActividadController extends Controller
 
         $actividad->delete();
 
-        return redirect('/admin/actividades/listado')
+        return redirect('/admin/actividades/listar')
             ->with('success', 'Actividad eliminada correctamente.');
     }
 }

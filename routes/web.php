@@ -35,37 +35,45 @@ Route::get('/admin', function () {
     return view('admin.admin');
 });
 
-Route::get('/admin/usuarios/listado', [UsuarioController::class, 'listado']);
-Route::get('/admin/usuarios/formulario', [UsuarioController::class, 'formulario']);
-Route::post('/admin/usuarios/guardar', [UsuarioController::class, 'guardar']);
+Route::get('/admin/usuarios/listar', [UsuarioController::class, 'listar']);
+Route::get('/admin/usuarios/crear', [UsuarioController::class, 'vistaFormulario']);
+Route::post('/admin/usuarios/registrar', [UsuarioController::class, 'registrar']);
 
-Route::get('/admin/usuarios/editar/{usuario}', [UsuarioController::class, 'editar']);
+Route::get('/admin/usuarios/editar/{usuario}', [UsuarioController::class, 'vistaEdicion']);
 Route::put('/admin/usuarios/actualizar/{usuario}', [UsuarioController::class, 'actualizar']);
-Route::delete('/admin/usuarios/eliminar/{usuario}', [UsuarioController::class, 'eliminar']);
 
-Route::get('/admin/actividades/listado', [ActividadController::class, 'listado']);
-Route::get('/admin/actividades/formulario', [ActividadController::class, 'formulario']);
-Route::post('/admin/actividades/guardar', [ActividadController::class, 'guardar']);
+Route::get('/admin/usuarios/mostrar/{usuario}', [UsuarioController::class, 'vistaMostrar']);
+Route::delete('/admin/usuarios/borrar/{usuario}', [UsuarioController::class, 'borrar']);
 
-Route::get('/admin/actividades/editar/{actividad}', [ActividadController::class, 'editar']);
+Route::get('/admin/actividades/listar', [ActividadController::class, 'listar']);
+Route::get('/admin/actividades/crear', [ActividadController::class, 'vistaFormulario']);
+Route::post('/admin/actividades/registrar', [ActividadController::class, 'registrar']);
+
+Route::get('/admin/actividades/editar/{actividad}', [ActividadController::class, 'vistaEdicion']);
 Route::put('/admin/actividades/actualizar/{actividad}', [ActividadController::class, 'actualizar']);
-Route::delete('/admin/actividades/eliminar/{actividad}', [ActividadController::class, 'eliminar']);
 
-Route::get('/admin/registros-huella/listado', [RegistroHuellaController::class, 'listado']);
-Route::get('/admin/registros-huella/formulario', [RegistroHuellaController::class, 'formulario']);
-Route::post('/admin/registros-huella/guardar', [RegistroHuellaController::class, 'guardar']);
+Route::get('/admin/actividades/mostrar/{actividad}', [ActividadController::class, 'vistaMostrar']);
+Route::delete('/admin/actividades/borrar/{actividad}', [ActividadController::class, 'borrar']);
 
-Route:: get('/admin/registros-huella/editar/{registroHuella}', [RegistroHuellaController::class, 'editar']);
+Route::get('/admin/registros-huella/listar', [RegistroHuellaController::class, 'listar']);
+Route::get('/admin/registros-huella/crear', [RegistroHuellaController::class, 'vistaFormulario']);
+Route::post('/admin/registros-huella/registrar', [RegistroHuellaController::class, 'registrar']);
+
+Route::get('/admin/registros-huella/editar/{registroHuella}', [RegistroHuellaController::class, 'vistaEdicion']);
 Route::put('/admin/registros-huella/actualizar/{registroHuella}', [RegistroHuellaController::class, 'actualizar']);
-Route::delete('/admin/registros-huella/eliminar/{registroHuella}', [RegistroHuellaController::class, 'eliminar']);  
 
-Route::get('/admin/administradores/listado', [AdministradorController::class, 'listado']);
-Route::get('/admin/administradores/formulario', [AdministradorController::class, 'formulario']);
-Route::post('/admin/administradores/guardar', [AdministradorController::class, 'guardar']);
+Route::get('/admin/registros-huella/mostrar/{registroHuella}', [RegistroHuellaController::class, 'vistaMostrar']);
+Route::delete('/admin/registros-huella/borrar/{registroHuella}', [RegistroHuellaController::class, 'borrar']);
 
-Route::get('/admin/administradores/editar/{administrador}', [AdministradorController::class, 'editar']);
+Route::get('/admin/administradores/listar', [AdministradorController::class, 'listar']);
+Route::get('/admin/administradores/crear', [AdministradorController::class, 'vistaFormulario']);
+Route::post('/admin/administradores/registrar', [AdministradorController::class, 'registrar']);
+
+Route::get('/admin/administradores/editar/{administrador}', [AdministradorController::class, 'vistaEdicion']);
 Route::put('/admin/administradores/actualizar/{administrador}', [AdministradorController::class, 'actualizar']);
-Route::delete('/admin/administradores/eliminar/{administrador}', [AdministradorController::class, 'eliminar']);
+
+Route::get('/admin/administradores/mostrar/{administrador}', [AdministradorController::class, 'vistaMostrar']);
+Route::delete('/admin/administradores/borrar/{administrador}', [AdministradorController::class, 'borrar']);
 
 Route::get('/admin/categorias/listado', [CategoriaController::class, 'listar']);
 Route::get('/admin/categorias/formulario', [CategoriaController::class, 'vistaFormulario']);

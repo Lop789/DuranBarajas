@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class RegistroHuellaController extends Controller
 {
-    public function listado()
+    public function listar()
     {
         $registros = RegistroHuella::with(['usuario', 'actividad'])
             ->orderBy('id', 'desc')
@@ -18,7 +18,7 @@ class RegistroHuellaController extends Controller
         return view('registros_huella.listado', compact('registros'));
     }
 
-    public function formulario()
+    public function vistaFormulario()
     {
         $usuarios = Usuario::where('estado', true)->get();
         $actividades = Actividad::where('estado', true)->get();
@@ -29,7 +29,7 @@ class RegistroHuellaController extends Controller
         ));
     }
 
-    public function guardar(Request $request)
+    public function registrar(Request $request)
     {
         $request->validate([
             'usuario_id' => 'required|exists:usuarios,id',
@@ -54,11 +54,11 @@ class RegistroHuellaController extends Controller
             'estado' => true,
         ]);
 
-        return redirect('/admin/registros-huella/listado')
+        return redirect('/admin/registros-huella/listar')
             ->with('success', 'Registro de huella creado correctamente.');
     }
 
-    public function editar(RegistroHuella $registroHuella)
+    public function vistaEdicion(RegistroHuella $registroHuella)
     {
         $usuarios = Usuario::where('estado', true)->get();
         $actividades = Actividad::where('estado', true)->get();
@@ -96,15 +96,22 @@ class RegistroHuellaController extends Controller
             'estado' => $request->estado,
         ]);
 
-        return redirect('/admin/registros-huella/listado')
+        return redirect('/admin/registros-huella/listar')
             ->with('success', 'Registro de huella actualizado correctamente.');
     }
 
-    public function eliminar(RegistroHuella $registroHuella)
+    public function vistaMostrar(RegistroHuella $registroHuella)
+    {
+        $registroHuella->load(['usuario', 'actividad']);
+
+        return view('registros_huella.mostrar', compact('registroHuella'));
+    }
+
+    public function borrar(RegistroHuella $registroHuella)
     {
         $registroHuella->delete();
 
-        return redirect('/admin/registros-huella/listado')
+        return redirect('/admin/registros-huella/listar')
             ->with('success', 'Registro de huella eliminado correctamente.');
     }
 }

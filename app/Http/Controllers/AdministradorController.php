@@ -8,19 +8,19 @@ use Illuminate\Support\Facades\Hash;
 
 class AdministradorController extends Controller
 {
-    public function listado()
+    public function listar()
     {
         $administradores = Administrador::orderBy('id', 'desc')->get();
 
         return view('administradores.listado', compact('administradores'));
     }
 
-    public function formulario()
+    public function vistaFormulario()
     {
         return view('administradores.formulario');
     }
 
-    public function guardar(Request $request)
+    public function registrar(Request $request)
     {
         $request->validate([
             'nombre' => 'required',
@@ -47,11 +47,11 @@ class AdministradorController extends Controller
             'estado' => true,
         ]);
 
-        return redirect('/admin/administradores/listado')
+        return redirect('/admin/administradores/listar')
             ->with('success', 'Administrador registrado correctamente.');
     }
 
-    public function editar(Administrador $administrador)
+    public function vistaEdicion(Administrador $administrador)
     {
         return view('administradores.editar', compact('administrador'));
     }
@@ -89,15 +89,20 @@ class AdministradorController extends Controller
 
         $administrador->update($datos);
 
-        return redirect('/admin/administradores/listado')
+        return redirect('/admin/administradores/listar')
             ->with('success', 'Administrador actualizado correctamente.');
     }
 
-    public function eliminar(Administrador $administrador)
+    public function vistaMostrar(Administrador $administrador)
+    {
+        return view('administradores.mostrar', compact('administrador'));
+    }
+
+    public function borrar(Administrador $administrador)
     {
         $administrador->delete();
 
-        return redirect('/admin/administradores/listado')
+        return redirect('/admin/administradores/listar')
             ->with('success', 'Administrador eliminado correctamente.');
     }
 }
