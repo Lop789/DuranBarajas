@@ -5,6 +5,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\RegistroHuellaController;
 use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\CategoriaController;
 
 Route::get('/', function () {
     return view('ecologia');
@@ -65,3 +66,12 @@ Route::post('/admin/administradores/guardar', [AdministradorController::class, '
 Route::get('/admin/administradores/editar/{administrador}', [AdministradorController::class, 'editar']);
 Route::put('/admin/administradores/actualizar/{administrador}', [AdministradorController::class, 'actualizar']);
 Route::delete('/admin/administradores/eliminar/{administrador}', [AdministradorController::class, 'eliminar']);
+
+Route::get('/admin/categorias/listado', [CategoriaController::class, 'listar']);
+Route::get('/admin/categorias/formulario', [CategoriaController::class, 'vistaFormulario']);
+Route::post('/admin/categorias/registrar', [CategoriaController::class, 'registrar']);
+
+Route::get('/admin/categorias/editar/{categoria}', [CategoriaController::class, 'vistaEdicion']);
+Route::put('/admin/categorias/actualizar/{categoria}', [CategoriaController::class, 'actualizar']);
+Route::get('/admin/categorias/mostrar/{categoria}', [CategoriaController::class, 'vistaMostrar']);
+Route::delete('/admin/categorias/eliminar/{categoria}', [CategoriaController::class, 'borrar']);
