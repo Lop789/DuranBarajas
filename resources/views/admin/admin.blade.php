@@ -52,7 +52,18 @@
                             Usuarios
                         </a>
                     </li>
-
+                    <li>
+                        <a href="/admin/categorias/formulario"
+                        class="block py-2 px-3 text-white hover:bg-green-800 rounded">
+                        Categoría
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/categorias/listado"
+                    class="block py-2 px-3 text-white hover:bg-green-800 rounded">
+                    Categorías
+                </a>
+            </li>     
                     <li>
                         <a href="/admin/actividades/formulario"
                             class="block py-2 px-3 text-white hover:bg-green-800 rounded">
