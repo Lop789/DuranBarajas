@@ -23,7 +23,7 @@
         </h1>
 
         <a
-            href="/admin/actividades/formulario"
+            href="/admin/actividades/crear"
             class="text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5"
         >
             Nueva actividad
@@ -107,7 +107,7 @@
                             </a>
 
                             <form
-                                action="/admin/actividades/eliminar/{{ $actividad->id }}"
+                                action="/admin/actividades/borrar/{{ $actividad->id }}"
                                 method="POST"
                                 onsubmit="return confirm('¿Seguro que deseas eliminar esta actividad?');"
                             >

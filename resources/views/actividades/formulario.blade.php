@@ -8,7 +8,7 @@
         Registrar actividad
     </h1>
 
-    <form action="/admin/actividades/guardar" method="POST">
+    <form action="/admin/actividades/registrar" method="POST">
 
         @csrf
 

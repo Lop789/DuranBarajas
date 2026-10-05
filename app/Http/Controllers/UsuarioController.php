@@ -41,7 +41,7 @@ class UsuarioController extends Controller
             'estado' => true,
         ]);
 
-        return redirect('/admin/usuarios/listado')
+        return redirect('/admin/usuarios/listar')
             ->with('success', 'Usuario registrado correctamente.');
     }
 
@@ -77,7 +77,7 @@ class UsuarioController extends Controller
 
         $usuario->update($datos);
 
-        return redirect('/admin/usuarios/listado')
+        return redirect('/admin/usuarios/listar')
             ->with('success', 'Usuario actualizado correctamente.');
     }
 
@@ -89,7 +89,7 @@ class UsuarioController extends Controller
     public function borrar(Usuario $usuario)
     {
         if ($usuario->registrosHuella()->exists()) {
-            return redirect('/admin/usuarios/listado')
+            return redirect('/admin/usuarios/listar')
                 ->with(
                     'error',
                     'No se puede eliminar el usuario porque tiene registros de huella asociados.'
@@ -98,7 +98,7 @@ class UsuarioController extends Controller
 
         $usuario->delete();
 
-        return redirect('/admin/usuarios/listado')
+        return redirect('/admin/usuarios/listar')
             ->with('success', 'Usuario eliminado correctamente.');
     }
 }

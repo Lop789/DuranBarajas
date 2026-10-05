@@ -31,7 +31,7 @@
             {{ $categoria->estado ? 'Activo' : 'Inactivo' }}
         </p>
 
-        <a href="/admin/categorias/listado"
+        <a href="/admin/categorias/listar"
             class="bg-green-700 text-white px-5 py-2 rounded-lg">
             Regresar
         </a>

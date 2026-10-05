@@ -136,7 +136,7 @@
             </button>
 
             <a
-                href="/admin/usuarios/listado"
+                href="/admin/usuarios/listar"
                 class="text-gray-900 bg-gray-200 hover:bg-gray-300 font-medium rounded-lg text-sm px-5 py-2.5"
             >
                 Cancelar

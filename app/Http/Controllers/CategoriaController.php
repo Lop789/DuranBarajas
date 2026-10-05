@@ -34,7 +34,7 @@ class CategoriaController extends Controller
             'estado' => true,
         ]);
 
-        return redirect('/admin/categorias/listado')
+        return redirect('/admin/categorias/listar')
             ->with('success', 'Categoría registrada correctamente.');
     }
 
@@ -59,7 +59,7 @@ class CategoriaController extends Controller
             'estado' => $request->estado,
         ]);
 
-        return redirect('/admin/categorias/listado')
+        return redirect('/admin/categorias/listar')
             ->with('success', 'Categoría actualizada correctamente.');
     }
 
@@ -71,13 +71,13 @@ class CategoriaController extends Controller
     public function borrar(Categoria $categoria)
     {
         if ($categoria->actividades()->exists()) {
-            return redirect('/admin/categorias/listado')
+            return redirect('/admin/categorias/listar')
                 ->with('error', 'No se puede eliminar la categoría porque tiene actividades asociadas.');
         }
 
         $categoria->delete();
 
-        return redirect('/admin/categorias/listado')
+        return redirect('/admin/categorias/listar')
             ->with('success', 'Categoría eliminada correctamente.');
     }
 }

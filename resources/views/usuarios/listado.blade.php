@@ -22,7 +22,7 @@
             Listado de usuarios
         </h1>
 
-        <a href="/admin/usuarios/formulario"
+        <a href="/admin/usuarios/crear"
             class="text-white bg-green-700 hover:bg-green-800
             font-medium rounded-lg text-sm px-5 py-2.5">
             Nuevo usuario
@@ -108,7 +108,7 @@
                             </a>
 
                             <form
-                                action="/admin/usuarios/eliminar/{{ $usuario->id }}"
+                                action="/admin/usuarios/borrar/{{ $usuario->id }}"
                                 method="POST"
                                 onsubmit="return confirm('¿Seguro que deseas eliminar este usuario?');"
                             >

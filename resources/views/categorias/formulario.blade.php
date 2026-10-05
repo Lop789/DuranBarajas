@@ -38,7 +38,7 @@
             Registrar categoría
         </button>
 
-        <a href="/admin/categorias/listado"
+        <a href="/admin/categorias/listar"
             class="ml-2 text-gray-600">
             Cancelar
         </a>

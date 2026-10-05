@@ -8,7 +8,7 @@
         Registrar huella ecológica
     </h1>
 
-    <form action="/admin/registros-huella/guardar" method="POST">
+    <form action="/admin/registros-huella/registrar" method="POST">
 
         @csrf
 

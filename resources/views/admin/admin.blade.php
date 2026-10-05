@@ -1,109 +1,287 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Panel Administrativo</title>
+    <title>Huella Ecológica</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f5f7;
+            color: #222;
+        }
+
+        /* BARRA DE NAVEGACIÓN */
+        .navbar {
+            background: #00852b;
+            color: white;
+            padding: 18px 0;
+        }
+
+        .navbar-contenido {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .titulo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 28px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* CONTENIDO */
+        .contenido {
+            width: 90%;
+            max-width: 1200px;
+            margin: 35px auto;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        /* BOTÓN NUEVO */
+        h1 + a,
+        h2 + a {
+            display: inline-block;
+            background: #00852b;
+            color: white;
+            text-decoration: none;
+            padding: 9px 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        h1 + a:hover,
+        h2 + a:hover {
+            background: #006d24;
+        }
+
+        /* TABLAS */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 5px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        th {
+            background: #00852b;
+            color: white;
+            text-align: left;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: #fafafa;
+        }
+
+        /* BOTONES DE ACCIONES */
+        td a {
+            display: inline-block;
+            padding: 6px 11px;
+            margin-right: 5px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            background: #2563eb;
+            font-size: 14px;
+        }
+
+        td a:hover {
+            background: #1d4ed8;
+        }
+
+        /* Boton de eliminar */
+        td form {
+            display: inline;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            box-shadow: none;
+            border: none;
+        }
+
+        td form button {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 6px 11px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        td form button:hover {
+            background: #b91c1c;
+        }
+
+        /* FORMULARIOS */
+        form {
+            background: white;
+            padding: 25px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 100px;
+        }
+
+        form button {
+            background: #00852b;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #006d24;
+        }
+
+        /* MENSAJES */
+        .mensaje {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        /* PANTALLAS PEQUEÑAS */
+        @media (max-width: 900px) {
+
+            .navbar-contenido {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .contenido {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 750px;
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100">
+<body>
 
-    <nav class="bg-green-700 border-gray-200">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav class="navbar">
 
-            <a href="/admin" class="flex items-center">
-                <span class="text-2xl font-semibold text-white">
-                    Huella Ecológica
-                </span>
-            </a>
+        <div class="navbar-contenido">
 
-            <button data-collapse-toggle="navbar-admin"
-                type="button"
-                class="inline-flex items-center p-2 text-sm text-white rounded-lg md:hidden">
-                <span class="sr-only">Abrir menú</span>
-                ☰
-            </button>
+            <div class="titulo">
+                Huella Ecológica
+            </div>
 
-            <div class="hidden w-full md:block md:w-auto" id="navbar-admin">
+            <div class="menu">
 
-                <ul class="flex flex-col md:flex-row md:space-x-8">
+                <a href="/admin">Inicio</a>
 
-                    <li>
-                        <a href="/admin"
-                            class="block py-2 px-3 text-white hover:bg-green-800 rounded">
-                            Inicio
-                        </a>
-                    </li>
+                <a href="/admin/usuarios/listar">
+                    Usuarios
+                </a>
 
-                    <li>
-                        <a href="/admin/usuarios/formulario"
-                            class="block py-2 px-3 text-white hover:bg-green-800 rounded">
-                            Usuario
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/admin/usuarios/listado"
-                            class="block py-2 px-3 text-white hover:bg-green-800 rounded">
-                            Usuarios
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/categorias/formulario"
-                        class="block py-2 px-3 text-white hover:bg-green-800 rounded">
-                        Categoría
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin/categorias/listado"
-                    class="block py-2 px-3 text-white hover:bg-green-800 rounded">
+                <a href="/admin/categorias/listar">
                     Categorías
                 </a>
-            </li>     
-                    <li>
-                        <a href="/admin/actividades/formulario"
-                            class="block py-2 px-3 text-white hover:bg-green-800 rounded">
-                            Actividad
-                        </a>
-                    </li>
 
-                    <li>
-                        <a href="/admin/actividades/listado"
-                            class="block py-2 px-3 text-white hover:bg-green-800 rounded">
-                            Actividades
-                        </a>
-                    </li>
+                <a href="/admin/actividades/listar">
+                    Actividades
+                </a>
 
-                    <li>
-                        <a href="/admin/registros-huella/formulario"
-                            class="block py-2 px-3 text-white hover:bg-green-800 rounded">
-                            Registrar huella
-                        </a>
-                    </li>
+                <a href="/admin/registros-huella/listar">
+                    Registros de huella
+                </a>
 
-                    <li>
-                        <a href="/admin/registros-huella/listado"
-                            class="block py-2 px-3 text-white hover:bg-green-800 rounded">
-                            Registros
-                        </a>
-                    </li>
-
-                </ul>
+                <a href="/admin/administradores/listar">
+                    Administradores
+                </a>
 
             </div>
+
         </div>
+
     </nav>
 
-    <main class="max-w-screen-xl mx-auto p-6">
+
+    <main class="contenido">
 
         @yield('contenido')
 
     </main>
 
 </body>
-
 </html>

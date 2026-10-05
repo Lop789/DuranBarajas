@@ -10,7 +10,7 @@
             Categorías
         </h1>
 
-        <a href="/admin/categorias/formulario"
+        <a href="/admin/categorias/crear"
             class="bg-green-700 text-white px-5 py-2 rounded-lg">
             + Nueva categoría
         </a>

@@ -16,7 +16,7 @@
             Listado de administradores
         </h1>
 
-        <a href="/admin/administradores/formulario"
+        <a href="/admin/administradores/crear"
             class="text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5">
             Nuevo administrador
         </a>
@@ -92,7 +92,7 @@
                             </a>
 
                             <form
-                                action="/admin/administradores/eliminar/{{ $administrador->id }}"
+                                action="/admin/administradores/borrar/{{ $administrador->id }}"
                                 method="POST"
                                 onsubmit="return confirm('¿Seguro que deseas eliminar este administrador?');"
                             >

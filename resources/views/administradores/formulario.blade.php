@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    <form action="/admin/administradores/guardar" method="POST">
+    <form action="/admin/administradores/registrar" method="POST">
 
         @csrf
 
