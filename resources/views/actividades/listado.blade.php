@@ -22,10 +22,9 @@
             Listado de actividades
         </h1>
 
-        <a
-            href="/admin/actividades/crear"
-            class="text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5"
-        >
+        <a href="/admin/actividades/crear"
+            class="text-white bg-green-700 hover:bg-green-800
+            font-medium rounded-lg text-sm px-5 py-2.5">
             Nueva actividad
         </a>
 
@@ -38,15 +37,14 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
 
                 <tr>
-
                     <th class="px-6 py-3">ID</th>
+                    <th class="px-6 py-3">Imagen</th>
                     <th class="px-6 py-3">Actividad</th>
                     <th class="px-6 py-3">Categoría</th>
                     <th class="px-6 py-3">Unidad</th>
                     <th class="px-6 py-3">Factor</th>
                     <th class="px-6 py-3">Estado</th>
                     <th class="px-6 py-3">Acciones</th>
-
                 </tr>
 
             </thead>
@@ -59,6 +57,14 @@
 
                     <td class="px-6 py-4">
                         {{ $actividad->id }}
+                    </td>
+
+                    <td class="px-6 py-4">
+                        <img
+                            src="{{ asset('images/actividad_' . $actividad->id . '.png') }}"
+                            alt="Actividad {{ $actividad->id }}"
+                            class="w-10 h-10 object-contain"
+                        >
                     </td>
 
                     <td class="px-6 py-4 font-medium text-gray-900">
@@ -81,13 +87,15 @@
 
                         @if ($actividad->estado)
 
-                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                            <span class="bg-green-100 text-green-800 text-xs
+                                font-medium px-2.5 py-0.5 rounded">
                                 Activo
                             </span>
 
                         @else
 
-                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                            <span class="bg-red-100 text-red-800 text-xs
+                                font-medium px-2.5 py-0.5 rounded">
                                 Inactivo
                             </span>
 
@@ -101,8 +109,8 @@
 
                             <a
                                 href="/admin/actividades/editar/{{ $actividad->id }}"
-                                class="font-medium text-blue-600 hover:underline"
-                            >
+                                class="text-white bg-blue-600 hover:bg-blue-700
+                                font-medium rounded-lg text-sm px-4 py-2">
                                 Editar
                             </a>
 
@@ -117,8 +125,8 @@
 
                                 <button
                                     type="submit"
-                                    class="font-medium text-red-600 hover:underline"
-                                >
+                                    class="text-white bg-red-600 hover:bg-red-700
+                                    font-medium rounded-lg text-sm px-4 py-2">
                                     Eliminar
                                 </button>
 

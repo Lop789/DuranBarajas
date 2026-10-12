@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Actividad;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ActividadController extends Controller
 {
@@ -26,7 +27,7 @@ class ActividadController extends Controller
 
     public function registrar(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'categoria_id' => 'required|exists:categorias,id',
             'nombre' => 'required',
             'descripcion' => 'nullable',
@@ -34,7 +35,10 @@ class ActividadController extends Controller
             'factor_emision' => 'required|numeric|min:0',
             'tipo' => 'required',
             'imagen' => 'nullable',
+            'estado' => 'required|boolean',
         ]);
+        
+            $validator->validate();
 
         Actividad::create([
             'categoria_id' => $request->categoria_id,

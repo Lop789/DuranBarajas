@@ -37,15 +37,14 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
 
                 <tr>
-
                     <th class="px-6 py-3">ID</th>
+                    <th class="px-6 py-3">Imagen</th>
                     <th class="px-6 py-3">Nombre</th>
                     <th class="px-6 py-3">Apellido</th>
                     <th class="px-6 py-3">Correo</th>
                     <th class="px-6 py-3">Teléfono</th>
                     <th class="px-6 py-3">Estado</th>
                     <th class="px-6 py-3">Acciones</th>
-
                 </tr>
 
             </thead>
@@ -58,6 +57,14 @@
 
                     <td class="px-6 py-4">
                         {{ $usuario->id }}
+                    </td>
+
+                    <td class="px-6 py-4">
+                        <img
+                            src="{{ asset('images/usuario_' . $usuario->id . '.png') }}"
+                            alt="Usuario {{ $usuario->id }}"
+                            class="w-10 h-10 object-contain"
+                        >
                     </td>
 
                     <td class="px-6 py-4 font-medium text-gray-900">
@@ -79,19 +86,15 @@
                     <td class="px-6 py-4">
 
                         @if ($usuario->estado)
-
                             <span class="bg-green-100 text-green-800 text-xs
                                 font-medium px-2.5 py-0.5 rounded">
                                 Activo
                             </span>
-
                         @else
-
                             <span class="bg-red-100 text-red-800 text-xs
                                 font-medium px-2.5 py-0.5 rounded">
                                 Inactivo
                             </span>
-
                         @endif
 
                     </td>
@@ -102,8 +105,8 @@
 
                             <a
                                 href="/admin/usuarios/editar/{{ $usuario->id }}"
-                                class="font-medium text-blue-600 hover:underline"
-                            >
+                                class="text-white bg-blue-600 hover:bg-blue-700
+                                font-medium rounded-lg text-sm px-4 py-2">
                                 Editar
                             </a>
 
@@ -118,8 +121,8 @@
 
                                 <button
                                     type="submit"
-                                    class="font-medium text-red-600 hover:underline"
-                                >
+                                    class="text-white bg-red-600 hover:bg-red-700
+                                    font-medium rounded-lg text-sm px-4 py-2">
                                     Eliminar
                                 </button>
 

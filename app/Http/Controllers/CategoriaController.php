@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoriaController extends Controller
 {
@@ -21,11 +22,14 @@ class CategoriaController extends Controller
 
     public function registrar(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'nombre' => 'required',
             'descripcion' => 'nullable',
             'imagen' => 'nullable',
+            'estado' => 'required|boolean',
         ]);
+            
+            $validator->validate();
 
         Categoria::create([
             'nombre' => $request->nombre,

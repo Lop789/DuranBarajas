@@ -6,6 +6,7 @@ use App\Models\RegistroHuella;
 use App\Models\Usuario;
 use App\Models\Actividad;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RegistroHuellaController extends Controller
 {
@@ -72,7 +73,7 @@ class RegistroHuellaController extends Controller
 
     public function actualizar(Request $request, RegistroHuella $registroHuella)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'usuario_id' => 'required|exists:usuarios,id',
             'actividad_id' => 'required|exists:actividades,id',
             'cantidad' => 'required|numeric|min:0',
@@ -80,6 +81,8 @@ class RegistroHuellaController extends Controller
             'observaciones' => 'nullable',
             'estado' => 'required|boolean',
         ]);
+        
+            $validator->validate();
 
         $actividad = Actividad::findOrFail($request->actividad_id);
 

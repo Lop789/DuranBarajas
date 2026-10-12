@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UsuarioController extends Controller
 {
@@ -22,13 +23,15 @@ class UsuarioController extends Controller
 
     public function registrar(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'nombre' => 'required',
             'apellido' => 'required',
             'correo' => 'required|email|unique:usuarios,correo',
             'telefono' => 'nullable',
             'contrasena' => 'required|min:6',
         ]);
+
+        $validator->validate();
 
         Usuario::create([
             'nombre' => $request->nombre,
@@ -52,7 +55,7 @@ class UsuarioController extends Controller
 
     public function actualizar(Request $request, Usuario $usuario)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'nombre' => 'required',
             'apellido' => 'required',
             'correo' => 'required|email|unique:usuarios,correo,' . $usuario->id,
@@ -61,6 +64,8 @@ class UsuarioController extends Controller
             'contrasena' => 'nullable|min:6',
             'estado' => 'required|boolean',
         ]);
+
+        $validator->validate();
 
         $datos = [
             'nombre' => $request->nombre,

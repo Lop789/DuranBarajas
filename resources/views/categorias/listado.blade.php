@@ -11,7 +11,7 @@
         </h1>
 
         <a href="/admin/categorias/crear"
-            class="bg-green-700 text-white px-5 py-2 rounded-lg">
+            class="bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-lg">
             + Nueva categoría
         </a>
 
@@ -34,13 +34,16 @@
         <table class="w-full text-left">
 
             <thead class="bg-gray-100">
+
                 <tr>
                     <th class="p-4">ID</th>
+                    <th class="p-4">Imagen</th>
                     <th class="p-4">Nombre</th>
                     <th class="p-4">Descripción</th>
                     <th class="p-4">Estado</th>
                     <th class="p-4">Acciones</th>
                 </tr>
+
             </thead>
 
             <tbody>
@@ -53,6 +56,14 @@
                         {{ $categoria->id }}
                     </td>
 
+                    <td class="p-4">
+                        <img
+                            src="{{ asset('images/categoria_' . $categoria->id . '.png') }}"
+                            alt="Categoría {{ $categoria->id }}"
+                            class="w-10 h-10 object-contain"
+                        >
+                    </td>
+
                     <td class="p-4 font-medium">
                         {{ $categoria->nombre }}
                     </td>
@@ -62,22 +73,26 @@
                     </td>
 
                     <td class="p-4">
+
                         @if($categoria->estado)
                             <span class="text-green-700">Activo</span>
                         @else
                             <span class="text-red-700">Inactivo</span>
                         @endif
+
                     </td>
 
                     <td class="p-4 flex gap-2">
 
                         <a href="/admin/categorias/mostrar/{{ $categoria->id }}"
-                            class="text-blue-600">
+                            class="text-white bg-blue-600 hover:bg-blue-700
+                            px-4 py-2 rounded-lg">
                             Ver
                         </a>
 
                         <a href="/admin/categorias/editar/{{ $categoria->id }}"
-                            class="text-yellow-600">
+                            class="text-white bg-blue-600 hover:bg-blue-700
+                            px-4 py-2 rounded-lg">
                             Editar
                         </a>
 
@@ -88,7 +103,9 @@
                             @method('DELETE')
 
                             <button type="submit"
-                                class="text-red-600">
+                                onclick="return confirm('¿Seguro que deseas eliminar esta categoría?');"
+                                class="text-white bg-red-600 hover:bg-red-700
+                                px-4 py-2 rounded-lg">
                                 Eliminar
                             </button>
 
@@ -101,7 +118,7 @@
                 @empty
 
                 <tr>
-                    <td colspan="5" class="p-6 text-center">
+                    <td colspan="6" class="p-6 text-center">
                         No hay categorías registradas.
                     </td>
                 </tr>

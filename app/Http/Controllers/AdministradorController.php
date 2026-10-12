@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Administrador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AdministradorController extends Controller
 {
@@ -58,7 +59,7 @@ class AdministradorController extends Controller
 
     public function actualizar(Request $request, Administrador $administrador)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'nombre' => 'required',
             'apellido' => 'required',
             'usuario' => 'required|unique:administradores,usuario,' . $administrador->id,
@@ -70,6 +71,8 @@ class AdministradorController extends Controller
             'imagen' => 'nullable',
             'estado' => 'required|boolean',
         ]);
+            
+            $validator->validate();
 
         $datos = [
             'nombre' => $request->nombre,
